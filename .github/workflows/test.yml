@@ -1,8 +1,35 @@
-name: Build on Windows
-on: push
+name: "run commit check for pr"
+on:
+  push:
+    branches:
+      - master
+
 jobs:
-  build:
+  setup-version:
     runs-on: windows-latest
+    strategy:
+      matrix:
+        dotnet-version: ['2.1', '2.2', '3.0', '3.1', '5.0']
     steps:
-      - run: choco install gh
-      - run: gh version
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Clear toolcache
+        shell: pwsh
+        run: |
+          $dotnetPaths = @{"$env:ProgramFiles\dotnet", "$env:LocalAppData\Microsoft\dotnet"}
+
+          foreach ($srcPath in $dotnetPaths) {
+            if (Test-Path $srcPath) {
+              $dstPath = Join-Path ([IO.Path]::GetTempPath()) ([IO.Path]::GetRandomFileName())
+              Move-Item -Path $srcPath -Destination $dstPath
+            }
+      - name: Setup dotnet ${{ matrix.dotnet-version }}
+        uses: ./
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+      - name: Check installed version
+        shell: pwsh
+        run: |
+          $version = & dotnet --version
+          Write-Host "Installed version: $version"
+          if (-not $version.StartsWith("${{ matrix.dotnet-version }}")) { throw "Unexpected version" }
