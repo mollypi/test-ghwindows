@@ -22,6 +22,7 @@ jobs:
             if (Test-Path $srcPath) {
               $dstPath = Join-Path ([IO.Path]::GetTempPath()) ([IO.Path]::GetRandomFileName())
               Move-Item -Path $srcPath -Destination $dstPath
+              }
             }
       - name: Setup dotnet ${{ matrix.dotnet-version }}
         uses: ./
