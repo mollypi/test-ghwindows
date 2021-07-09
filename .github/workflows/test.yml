@@ -16,7 +16,7 @@ jobs:
       - name: Clear toolcache
         shell: pwsh
         run: |
-          $dotnetPaths = @{"$env:ProgramFiles\dotnet", "$env:LocalAppData\Microsoft\dotnet"}
+          $dotnetPaths = @("$env:ProgramFiles\dotnet", "$env:LocalAppData\Microsoft\dotnet")
 
           foreach ($srcPath in $dotnetPaths) {
             if (Test-Path $srcPath) {
