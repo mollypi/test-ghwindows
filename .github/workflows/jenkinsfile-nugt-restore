@@ -1,0 +1,16 @@
+/Development/Profitect/Silverlight/Externals/LogoUI/LogoUI.Infra
+/Development/Profitect/Profitect.CCTV.ContractsSL
+/Development/Profitect/Profitect.Logging
+/Development/Profitect/Profitect.RedisClient
+/Development/Profitect/Profitect.ServiceBus
+/Development/Profitect/Profitect.ServiceBus.Analysis.SSASProvider
+/Development/Profitect/Clients/Profitect.BigQueryClient
+/Development/Profitect/Test/UnitTests/ConfigurationTests
+/Development/Profitect/Test/UnitTests/Profitect.Contracts.Tests
+/Development/Profitect/Test/TestRunProject
+/Development/Profitect/Profitect.CachingPrimer
+/Development/Profitect/VIAPrimer
+/Development/Profitect/Profitect.SentimentalAnalysis.Utility
+/Development/Profitect/ReceiptCCTVPlayer
+bat'C:\\nuget.exerestoreReceiptCCTVPlayer.sln'
+bat'C:\\nuget.exerestoreReceiptCCTVPlayer.6.1.sln'

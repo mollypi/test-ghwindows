@@ -1,0 +1,21 @@
+name: run msbuild and nuget 
+
+on:
+  push:
+    branches: 
+    - master
+
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.0.2
+        with:
+          vs-version: "[16.4,16.5]"
+      - name: test mssbuild is present 
+        run: msbuild 
+
+    #  - name: Setup NuGet.exe for use with actions
+    #   uses: NuGet/setup-nuget@v1.0.5
