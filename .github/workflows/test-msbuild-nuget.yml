@@ -15,7 +15,7 @@ jobs:
         with:
           vs-version: '16.0'
       - name: test mssbuild is present 
-        run: msbuild ./super-simple-csproj
+        run: msbuild super-simple-csproj
 
     #  - name: Setup NuGet.exe for use with actions
     #   uses: NuGet/setup-nuget@v1.0.5
