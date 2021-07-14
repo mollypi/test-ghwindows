@@ -13,9 +13,9 @@ jobs:
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.0.2
         with:
-          vs-version: "[16.4,16.5]"
+          vs-version: '16.0'
       - name: test mssbuild is present 
-        run: msbuild 
+        run: msbuild ./super-simple-csproj
 
     #  - name: Setup NuGet.exe for use with actions
     #   uses: NuGet/setup-nuget@v1.0.5
